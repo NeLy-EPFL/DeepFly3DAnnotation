@@ -1,5 +1,6 @@
 
 ## Setup Guide
+For an example running annotation tool, check this: https://icwww.epfl.ch/~guenel/drosophilaannotate/index.html?folder=2018-06-12--16-05-24--semih
 
 ### Firebase setup
 
@@ -80,4 +81,5 @@ Open ```index.html``` in a web browser and change the URL to point to the specif
 
 Provide an identification on the top of the page. Using the buttons (or keyboard shortcuts), various settings like high or low confidence in points or moving the closest point can be toggled.
 
-By Roman Bachmann
+## Acknowledgment
+Thanks Roman Bachmann for creating this README.
