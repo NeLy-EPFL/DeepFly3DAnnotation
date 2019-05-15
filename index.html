@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" >
+  <head>
+    <meta charset="UTF-8">
+    <title>DeepFly Image Annotation Tool</title>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Lato">
+    <link rel="stylesheet" href="css/style.css">
+      <meta name="viewport" content="width=device-width, initial-scale=0.5">
+      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  </head>
+  <body>
+    <!-- <onload="myOnLoadFunction()"> -->
+    <div id="loading_screen"></div>
+    <div id="loading_screen_text"><p>Javascript is loading. Please activate Javascript if disabled. </p><p>Example URL: http://icwww.epfl.ch/~guenel/drosophilaannotate/index.html?folder=apr22_test7CamsMov+name=i_+frames=5000+ext=.png+config=fly_7+ss=2</p></div>
+    <center id="body" >
+      <center><h2><b>DeepFly Image Annotation Tool</b></h2></center>
+      <center>
+      <font color="red">Please provide your user name: </font>
+	  <input type="text" name="user_identification" class="enter" value="" id="user_identification" onchange="userNameChanged();" onkeypress="this.onchange();" onpaste="this.onchange();" oninput="this.onchange();"/>
+	  (Full name or identificaton id)
+      <p style="width:600px; text-align: left">
+		  Frames can be annotated sequentially, by clicking the location of the selected joint in the image below. 
+		  The next joint and frame will be selected automatically after each click. To refine your annotation, use the buttons or respective keyboard keys. Annotation examples are provided below.
+      </p>
+      </center>
+
+        <center>
+            <h1 align="center"; id="counter"; > <b>Camera: 0 Image ID: 0</b></h1>
+        </center>
+	    <!--  Navigation: -->
+                <input type="button" class="button" id="high_confidence" Value="high" onclick="switch_high_confidence();" />
+                <input type="button" class="button" id="low_confidence" Value="low" onclick="switch_low_confidence();" />
+                <input type="button" class="button" id="move_closest" Value="move closest " onclick="switch_move_closest();" />
+                <input type="button" class="button" id="undo" Value="undo" onclick="undo();" />
+                <input type="button" class="button" id="redo" Value="redo" onclick="redo();" />
+                <input type="button" class="button" id="jprevious" Value="&uarr; joint" onclick="select_previous_visible_joint();" />
+                <input type="button" class="button" id="jnext" Value="&darr; joint" onclick="select_next_visible_joint();" />
+                <input type="button" class="button" id="previous" Value="&larr; frame" onclick="previous_pose();" />
+                <input type="button" class="button" id="next" Value="&rarr; frame " onclick="next_pose();" />
+                <input type="button" class="button" id="cprevious" Value="&larr; camera" onclick="previous_camera();" />
+                <input type="button" class="button" id="cnext" Value="&rarr; camera " onclick="next_camera();" />
+      <center>
+          <input type="button" class="button" id="zoom_in" Value="+ zoom" onclick="zoom_in();" />
+          <input type="button" class="button" id="zoom_out" Value="- zoom" onclick="zoom_out();" />
+          <input type="button" class="button" id="save_csv" Value="&#xf0c7;Save .csv" onclick="save_database_as_csv();" />
+          <input type="button" class="button" id="validate" Value=" &#10003;validate" onclick="save_current_annotation();" />
+      </center>
+
+      <div style="width:220px;">
+        <div class="w3-container" style="float:middle;">
+              <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Help</button>
+              <div id="id01" class="w3-modal">
+                  <div class="w3-modal-content">
+                      <div class="w3-container">
+                          <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-display-topright">&times;</span>
+                          <p> (Shift) + C to next camera</p>
+                          <p> A or D to switch frames</p>
+                          <p> 1-5 to switch joints</p>
+                          <p> (Shift) + Q-W-E-R-T to switch limbs </p>
+                          <p> S to switch move-closest</p>
+                          <p> (Shift) + Space to go to next joint </p>
+                          <p> Shift + v to not to draw the annotations </p>
+                          <p> h to switch high-confidence</p>
+                          <p> l to switch low-confidence</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+
+	</div>
+      
+      <br><br>
+      <!--   Current joint: -->
+      <center>
+      <SELECT type="pulldown" ID="select_limb" onchange="limb_changed()"></SELECT>
+      <SELECT type="pulldown" ID="select_part" onchange="limb_changed()"></SELECT>
+      </center>
+      <br><br>
+        <center>
+      <div id="container">
+        <div id="marker"></div>
+        <canvas id="canvas"></canvas>
+      </div>
+
+        </center>
+	
+        <center>
+	  <br><br>
+	  
+        </center>
+	
+	<br><br><br>
+	
+      
+      <p id="image_name">PLACEHOLDER</p>
+      <!--   <input id="check_popup" type="checkbox">Disable warning popup</input><br> -->
+      <p URL example: http://icwww.epfl.ch/~guenel/drosophilaannotate/index.html?folder=apr22_test7CamsMov+name=i_+frames=5000+ext=.png+config=fly_7+ss=2</p>
+    </div> <!-- end body div-->
+    <script src="https://www.gstatic.com/firebasejs/4.8.0/firebase.js"></script>
+	<!--   <script data-main="scripts/main.js" src="scripts/require.js"></script> -->
+    <!--   <script data-main="js/index.js"  src="js/require.js"></script> -->
+    <script src="js/index.js"></script>
+  </body>
+</html>

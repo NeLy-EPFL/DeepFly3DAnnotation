@@ -1,0 +1,73 @@
+/* overall style */
+#body2 {
+    font-family: 'Lato', serif;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+/* to prent the user from selecting the image by double click during annotation */
+::-moz-selection { background:transparent; }
+::selection { background:transparent; }
+
+/* the container sets the image size and pointer type, is required to get relative position */
+#container {
+	position: relative;
+	outline-style:none;
+	cursor: crosshair;
+}
+
+/* Legend style */
+.button  {
+    font-size: 120%;
+}
+
+/* improved style for pulldown menu */
+select#select_limb, select#select_part {
+   -webkit-appearance: button;
+   -webkit-border-radius: 0px;
+   -webkit-user-select: none;
+   border: 1px solid #AAA;
+   color: #555;
+   font-size: inherit;
+   overflow: hidden;
+   padding: 5px 10px;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 300px;
+}
+
+/* Loading screen */
+#body {
+	display: none; /* at startup only */
+}
+#loading_screen {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* centered pictures */
+.imgContainer{
+    float:left;
+	text-align: center;
+}
+
+.container{
+    background-color:#2E4272;
+    display:flex;
+}
+.fixed{
+    background-color:#4F628E;
+    width: 200px;
+}
+.flex-item{
+    background-color:#7887AB;
+    flex-grow: 1;
+}
