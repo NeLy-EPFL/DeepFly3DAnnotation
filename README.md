@@ -81,5 +81,36 @@ Open ```index.html``` in a web browser and change the URL to point to the specif
 
 Provide an identification on the top of the page. Using the buttons (or keyboard shortcuts), various settings like high or low confidence in points or moving the closest point can be toggled.
 
+## Downloading the annotations
+
+You can download all your annotations using Google Firebase, using  Database --> Export Json. 
+You can parse the json code using a modified version of the the following code:
+
+```python
+# parse json file annotations
+if not self.unlabeled and isfile(self.json_file):
+    json_data = json.load(open(self.json_file, "r"))
+    for session_id in json_data.keys():
+        if session_id not in self.session_id_train_list:
+            print("Ignoring session id: {}".format(session_id))
+            continue
+        for folder_name in json_data[session_id]["data"].keys():
+            if folder_name not in self.folder_train_list:
+                continue
+            for image_name in json_data[session_id]["data"][folder_name].keys():
+                key = ("/data/annot/" + folder_name, image_name)
+                # for the hand annotations, it is always correct ordering
+                self.cidread2cid[key[FOLDER_NAME]] = np.arange(skeleton.num_cameras)
+                cid_read, img_id = parse_img_name(image_name)
+
+                try:
+                    pts = json_data[session_id]["data"][folder_name][image_name]["position"]
+                except:
+                    print("Cannot get annotation for key ({},{})".format(key[0], key[1]))
+                    continue
+                self.annotation_dict[key] = np.array(pts)
+```
+
+
 ## Acknowledgment
 Thanks Roman Bachmann for creating this README.
