@@ -119,7 +119,7 @@ python -m SimpleHTTPServer
 Then, you can access to the annotation tool at localhost:8000.
 
 <p align="center">
-<img src="images/localhost.png" width="640">
+<img src="localhost.png" width="640">
 </p>
 
 
