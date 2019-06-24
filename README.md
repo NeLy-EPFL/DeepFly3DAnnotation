@@ -110,6 +110,17 @@ if not self.unlabeled and isfile(self.json_file):
                     continue
                 self.annotation_dict[key] = np.array(pts)
 ```
+## Running the annotation tool
+To have run the tool under localhost you can use python simple html server, under the root folder,
+
+```python
+python -m SimpleHTTPServer
+```
+Then, you can access to the annotation tool at localhost:8000.
+
+<p align="center">
+<img src="images/localhost.png" width="640">
+</p>
 
 
 ## Acknowledgment
