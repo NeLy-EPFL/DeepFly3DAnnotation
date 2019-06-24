@@ -30,12 +30,12 @@ For an example running annotation tool, check this: https://icwww.epfl.ch/~guene
 Example:
 
 ```
-apiKey: "AIzaSyAJ7bBFfjk8RDzWcSe1yUnUfRKDTykpAQc",
+apiKey: "APIKEY",
 authDomain: "ski-dataset.firebaseapp.com",
 databaseURL: "https://ski-dataset.firebaseio.com",
 projectId: "ski-dataset",
 storageBucket: "ski-dataset.appspot.com",
-messagingSenderId: "793102276287",
+messagingSenderId: "ID",
 
 move_closest: false,
 suggestions: true,
