@@ -51,11 +51,11 @@ var config_dict =
                 },
 
                 //                0               1        2                3                 4           5             6                7          8
-                limb_names: ["Right Frontal", "Right Mid", "Right Back", "Left Frontal", "Left Mid", "Left Back", "Right Antenna", "Left Antenna", "Abdomen"],
+                limb_names: ["Right Frontal", "Right Mid", "Right Back", "Left Frontal", "Left Mid", "Left Back", "Abdomen", "Right Antenna", "Left Antenna"],
                 part_names: ["Body-Coxa (Hip)", "Coxa-Femur", "Femur-Tibia ('knee')", "Tibia-Tarsus ('ankle')", "Tarsus tip ('foot tip')"],
                 antenna_part_names: ["Antenna Tip"],
                 bones: [[0, 1], [1, 2], [2, 3], [3, 4]],
-                camera_visible_limbs: [[3, 4, 5, 8], [3, 4, 5, 7, 8], [3, 4, 5, 7], [0, 1, 3, 4, 6, 7], [0, 1, 2, 6], [0, 1, 2, 6, 8], [0, 1, 2, 8]]
+                camera_visible_limbs: [[3, 4, 5, 6], [3, 4, 5, 8, 6], [3, 4, 5, 8], [0, 1, 3, 4, 7, 8], [0, 1, 2, 6], [0, 1, 2, 7, 6], [0, 1, 2, 6]]
         }
     };
 
@@ -679,7 +679,7 @@ function current_camera_sees_this_joint() {
     */
 
     for (var i = 0; i < config["camera_visible_limbs"][get_camera_id(frame_counter)].length; i++) {
-        if ((config["camera_visible_limbs"][get_camera_id(frame_counter)][i] == limb_id) && !(limb_id > 5 && joint_id > 0)) {
+        if ((config["camera_visible_limbs"][get_camera_id(frame_counter)][i] == limb_id) && !(limb_id > 6 && joint_id > 0)) {
             //console.log("Limb id " +  limb_names[limb_id]+ " is visible");
             return true;
         }
@@ -1028,7 +1028,7 @@ function get_frame_counter_from_camera_id_and_pose_id(camera_id, pose_id) {
 }
 
 function is_limb_antenna(limb_id) {
-    return (limb_id == 6 || limb_id == 7);
+    return (limb_id == 7 || limb_id == 8);
 }
 
 function is_point_low_confidence(pos) {
@@ -1306,10 +1306,13 @@ document.onkeydown = function (e) {
         set_limb_id(2);
         update_joint_counter(selected_point_id);
     } else if (key == 82) { // r
-        set_limb_id(6);
+        set_limb_id(7);
         update_joint_counter(selected_point_id);
     } else if (key == 84) { // t
-        set_limb_id(7);
+        set_limb_id(8);
+        update_joint_counter(selected_point_id);
+    } else if (key == 90) { // z
+        set_limb_id(6);
         update_joint_counter(selected_point_id);
     } else if (key == 32 && evtobj.shiftKey) { // shift + space
         select_previous_visible_joint();
