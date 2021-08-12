@@ -17,16 +17,20 @@ defaults =
         uid: null,
         ext: ".jpg"
     };
+
+
 var config_dict =
     {
         "fly_7":
             {
-                apiKey: "",
-                authDomain: "drosophilaimaging.firebaseapp.com",
-                databaseURL: "https://drosophilaimaging.firebaseio.com",
-                projectId: "drosophilaimaging",
-                storageBucket: "drosophilaimaging.appspot.com",
-                messagingSenderId: "259994197740",
+  		apiKey: "AIzaSyBzlim4SdbiWBIIVbXI4-5OL1sDQzvY2_Q",
+  		authDomain: "deepfly3d-annotations.firebaseapp.com",
+  		databaseURL: "https://deepfly3d-annotations-default-rtdb.firebaseio.com",
+  		projectId: "deepfly3d-annotations",
+  		storageBucket: "deepfly3d-annotations.appspot.com",
+  		messagingSenderId: "375908993801",
+  		appId: "1:375908993801:web:09388b5bf69d23d67761d8",
+  		measurementId: "G-7P71XPCQLL",
 
                 move_closest: false,
                 suggestions: true,
@@ -37,22 +41,24 @@ var config_dict =
 
                 num_cameras: 7,
                 num_images: {
-                    "apr22_test7CamsMov": 1000,
-                    "2018-05-10--17-53-30--testViewElavGC6s-R57C10-GC6s-tdTom_Fly4": 1000 * 7,
-                    "2018-05-10--17-45-05--testViewElavGC6s-R57C10-GC6s-tdTom_Fly4": 700,
-                    "Fly1_Seq30s_behData_003_network": 2000 * 7,
-                    "180720_MAN-tdTomGC6fopt_Fly3_CO2CC_006_network": 5000 * 7,
-                    "2018-06-07--17-05-26--semih-walking--5--long_network": 10000 * 7
+                    "210727_aJO-GAL4xUAS-CsChr_Fly001_001_Beh_behData_images": 2700*7,
+                    "210727_aJO-GAL4xUAS-CsChr_Fly001_001_Glue_behData_images": 2700*7,
+                    "210727_aJO-GAL4xUAS-CsChr_Fly001_002_Glue_behData_images": 2700*7,
+                    "210727_aJO-GAL4xUAS-CsChr_Fly001_003_Beh_behData_images": 2700*7,
+                    "210727_aJO-GAL4xUAS-CsChr_Fly001_004_Beh_behData_images": 2700*7,
+                    "210727_aJO-GAL4xUAS-CsChr_Fly001_005_Beh_behData_images": 2700*7,
+                    "210727_aJO-GAL4xUAS-CsChr_Fly001_006_Beh_behData_images": 2700*7,
                 },
 
-                //                0               1        2                3                 4               5     6              7
-                limb_names: ["Right Frontal", "Right Mid", "Right Back", "Left Frontal", "Left Mid", "Left Back", "Right Antenna", "Left Antenna"],
+                //                0               1        2                3                 4           5             6                7          8
+                limb_names: ["Right Frontal", "Right Mid", "Right Back", "Left Frontal", "Left Mid", "Left Back", "Right Antenna", "Left Antenna", "Abdomen"],
                 part_names: ["Body-Coxa (Hip)", "Coxa-Femur", "Femur-Tibia ('knee')", "Tibia-Tarsus ('ankle')", "Tarsus tip ('foot tip')"],
                 antenna_part_names: ["Antenna Tip"],
                 bones: [[0, 1], [1, 2], [2, 3], [3, 4]],
-                camera_visible_limbs: [[0, 1, 2], [0, 1, 2, 6], [0, 1, 2, 6], [0, 1, 3, 4, 6, 7], [3, 4, 5, 7], [3, 4, 5, 7], [3, 4, 5]],
+                camera_visible_limbs: [[3, 4, 5, 8], [3, 4, 5, 7, 8], [3, 4, 5, 7], [0, 1, 3, 4, 6, 7], [0, 1, 2, 6], [0, 1, 2, 6, 8], [0, 1, 2, 8]]
         }
     };
+
 // set config
 var url_parsed = parseURL();
 default_config = "fly_7";
