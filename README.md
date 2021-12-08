@@ -1,6 +1,5 @@
 
 ## Setup Guide
-Example online annotation tool: https://icwww.epfl.ch/~guenel/drosophilaannotate/index.html?folder=2018-06-12--16-05-24--semih
 
 ### Firebase setup
 
